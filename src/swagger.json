@@ -100,19 +100,19 @@
         "get": {
                 "tags": ["Users"],
                 "summary": "Retorna todos os usuários",
-                "description": "Somente usuário #admin pode acessar",
-                "parameters": {
-                    "in": "headers",
+                "description": "Somente usuário *admin* pode acessar",
+                "parameters":[ {
                     "name": "user_id",
+                    "in": "headers",
+                    "required": true,
+                    "descritption": "user_id",
                     "schema": {
                         "type": "string",
                         "format": "uuid"
-                    },
-                    "required": true,
-                    "descritption": "user_id"
-                },
+                    }
+                }],
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "Operação realizada com sucesso",
                         "content": {
                         "application/json": {
@@ -184,16 +184,16 @@
         "get": {
             "tags": ["Users"],
                 "summary": "Retorna um usuário em específico.",
-                "parameters": {
-                    "in": "path",
+                "parameters": [ {
                     "name": "user_id",
+                    "in": "path",
+                    "required": true,
+                    "descritption": "ID do Usuário",
                     "schema": {
                         "type": "string",
                         "format": "uuid"
-                    },
-                    "required": true,
-                    "descritption": "ID do Usuário"
-                },
+                    }
+                } ],
                 "responses": {
                     "200": {
                         "description": "Operação realizada com sucesso",
@@ -258,18 +258,18 @@
         },
               "/users/{user_id}/admin": {
             "patch": {
-                            "tags": ["Users"],
+                "tags": ["Users"],
                 "summary": "Retorna um usuário em específico.",
-                "parameters": {
-                    "in": "path",
+                "parameters":[ {
                     "name": "user_id",
+                    "in": "path",
+                    "required": true,
+                    "descritption": "ID do Usuário",
                     "schema": {
                         "type": "string",
                         "format": "uuid"
-                    },
-                    "required": true,
-                    "descritption": "ID do Usuário"
-                },
+                    }
+                }],
                 "responses": {
                     "200": {
                         "description": "Operação realizada com sucesso",
